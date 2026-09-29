@@ -1,0 +1,153 @@
+/* Browser Compatibility Fixes for Element Plus and Custom Components */
+
+/* Fix appearance property for Element Plus components */
+.el-input__inner,
+.el-select__input,
+.el-textarea__inner,
+.el-input-number__input {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus button appearance */
+.el-button {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus checkbox and radio */
+.el-checkbox__input .el-checkbox__inner,
+.el-radio__input .el-radio__inner {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus switch */
+.el-switch__core {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus slider */
+.el-slider__runway,
+.el-slider__button {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus date picker */
+.el-date-editor .el-input__inner {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus cascader */
+.el-cascader .el-input__inner {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus time picker */
+.el-time-editor .el-input__inner {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus color picker */
+.el-color-picker__trigger {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus upload */
+.el-upload input[type="file"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix for Element Plus rate */
+.el-rate__item {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Additional cross-browser fixes */
+/* Fix for webkit scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Fix for Firefox scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+/* Fix for focus outline consistency */
+*:focus {
+  outline: 2px solid #409eff;
+  outline-offset: 2px;
+}
+
+.el-button:focus,
+.el-input__inner:focus,
+.el-textarea__inner:focus,
+.el-select__input:focus {
+  outline: none;
+}
+
+/* Fix for box-sizing consistency */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Fix for font rendering consistency */
+body,
+.el-button,
+.el-input,
+.el-select,
+.el-textarea {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fix for transform3d hardware acceleration */
+.el-dialog,
+.el-drawer,
+.el-message,
+.el-notification,
+.el-tooltip__popper {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}

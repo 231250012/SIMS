@@ -1,0 +1,85 @@
+server:
+  port: 8081
+
+spring:
+  # Database Configuration
+  datasource:
+    url: jdbc:mysql://rm-cn-qs34jf2mw0002goo.rwlb.rds.aliyuncs.com:3306/sims_dev?useSSL=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&characterEncoding=utf8&useUnicode=true
+    username: zts
+    password: Abc12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 300000
+      max-lifetime: 1200000
+  
+  # JPA Configuration for Development
+  jpa:
+    hibernate:
+      ddl-auto: none  # 使用Flyway管理数据库结构，不让Hibernate验证
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  
+  # Flyway Configuration
+  flyway:
+    enabled: false  # 暂时禁用 Flyway 直到解决迁移冲突
+
+  # Redis Configuration for Development
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      database: 0
+      timeout: 3000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
+  # Kafka Configuration for Development
+  kafka:
+    bootstrap-servers: localhost:9092,localhost:9093
+    consumer:
+      group-id: sims-grade-consumer-group-dev
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+    producer:
+      acks: all
+      retries: 3
+      batch-size: 16384
+      linger-ms: 5
+
+# Logging Configuration for Development
+logging:
+  level:
+    com.sims: DEBUG
+    org.springframework.kafka: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# Application specific configuration
+app:
+  jwt:
+    secret: dev-secret-key-that-should-be-changed-in-production-and-be-at-least-256-bits-long
+    expiration: 1800000 # 30 minutes in milliseconds
+  
+  file:
+    upload-dir: ./uploads/dev
+    max-size: 10MB
+  
+  cache:
+    ttl: 300 # 5 minutes in seconds
+
+# Kafka Topics Configuration
+kafka:
+  topic:
+    grade-updates: grade-updates
+    grade-updates-dlq: grade-updates-dlq
+    partitions: 3
+    replication-factor: 2

@@ -1,0 +1,204 @@
+@import './base.css';
+
+/* ========== Billow → SIMS 应用内 Token ========== */
+:root {
+  --color-primary: #0066ff;
+  --color-primary-soft: #eff6ff;
+  --color-primary-muted: #93c5fd;
+  --color-accent: #38bdf8;
+  --color-accent-soft: #e0f2fe;
+  --color-cta: #0066ff;
+  --color-cta-text: #ffffff;
+  --color-ink: #0a1128;
+
+  --color-bg-shell: #f8fbff;
+  --color-bg-card: #ffffff;
+  --color-bg-elevated: rgba(255, 255, 255, 0.82);
+  --color-bg-soft: #f1f5f9;
+
+  --color-text-primary: #0a1128;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #ffffff;
+  --color-text-link: #0066ff;
+
+  --color-border: #e5e7eb;
+  --color-border-strong: #d1d5db;
+  --shadow-card: 0 8px 28px rgba(37, 99, 235, 0.08);
+  --shadow-soft: 0 12px 36px rgba(0, 102, 255, 0.12);
+
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  --font-sans: 'Plus Jakarta Sans', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+
+  --app-primary: var(--color-primary);
+  --app-primary-soft: var(--color-primary-soft);
+  --app-primary-border: var(--color-primary-muted);
+  --app-bg-page: var(--color-bg-shell);
+  --app-bg-card: var(--color-bg-card);
+  --app-text: var(--color-text-primary);
+  --app-text-secondary: var(--color-text-secondary);
+  --app-text-muted: var(--color-text-muted);
+  --app-border: var(--color-border);
+  --app-radius: var(--radius-lg);
+  --app-shadow: var(--shadow-card);
+
+  --el-color-primary: #0066ff;
+  --el-color-primary-light-3: #3b82f6;
+  --el-color-primary-light-5: #60a5fa;
+  --el-color-primary-light-7: #93c5fd;
+  --el-color-primary-light-8: #bfdbfe;
+  --el-color-primary-light-9: #eff6ff;
+  --el-color-primary-dark-2: #0052cc;
+  --el-border-radius-base: 12px;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text-link);
+}
+
+a:hover {
+  color: var(--el-color-primary-dark-2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-muted);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- 组件：柔和卡片化 ---------- */
+.el-button {
+  border-radius: var(--radius-pill) !important;
+  font-weight: 600;
+}
+
+.el-button--primary {
+  --el-button-bg-color: #0066ff;
+  --el-button-border-color: #0066ff;
+  --el-button-hover-bg-color: #0052cc;
+  --el-button-hover-border-color: #0052cc;
+  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.28);
+}
+
+.el-button--default {
+  background: #eff6ff;
+  border-color: transparent;
+  color: #0a1128;
+}
+
+.el-button--default:hover {
+  background: #dbeafe;
+  border-color: transparent;
+  color: #0066ff;
+}
+
+.el-card {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+  border: 1px solid rgba(229, 231, 235, 0.85) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(10px);
+}
+
+.el-card__header {
+  border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  border-radius: var(--radius-sm) !important;
+}
+
+.el-table {
+  border-radius: var(--radius-md);
+  --el-table-header-bg-color: #f8fbff;
+  --el-table-header-text-color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.el-dialog {
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden;
+}
+
+.el-tag {
+  border-radius: var(--radius-pill) !important;
+}
+
+.page-loading,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* 通用页面标题 */
+.page-header h1,
+.page-header h2,
+.page-title {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary) !important;
+  line-height: 1.25;
+}
+
+.page-subtitle,
+.subtitle {
+  color: var(--color-text-secondary) !important;
+  font-size: 15px !important;
+  line-height: 1.6;
+}
+
+/* 统计卡等自建卡片统一气质 */
+.stat-card,
+.action-item,
+.notice-item {
+  border-radius: var(--radius-lg) !important;
+}

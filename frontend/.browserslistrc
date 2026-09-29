@@ -1,0 +1,24 @@
+# Browsers that we support
+
+# Chrome
+Chrome >= 84
+ChromeAndroid >= 84
+
+# Edge
+Edge >= 84
+
+# Safari
+Safari >= 15.4
+iOS >= 15.4
+
+# Firefox
+Firefox >= 78
+
+# Android
+Android >= 84
+
+# General fallbacks
+> 1%
+last 2 versions
+not dead
+not ie 11
